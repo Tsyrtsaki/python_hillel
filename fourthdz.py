@@ -6,23 +6,14 @@ print(options_list)
 c = input("Choose action: ")
 
 
-a1 = a + b
-a2 = a - b
-a3 = a / b
-a4 = a * b
+list_operations = {
+    "1": lambda x, y: x + y,
+    "2": lambda x, y: x - y,
+    "3": lambda x, y: (x / y) if y != 0 else "Division by 0!",
+    "4": lambda x, y: x * y,
+}
 
-
-if c == "1":
-    print(a1)
-elif c == "2":
-    print(a2)
-elif c == "3":
-    if b  == 0:
-        print("Division by 0!")
-    else:
-        print(a3)
-elif c == "4":
-    print(a4)
-
-
-  # Только мне не понятно почему выдает ошибку при делении на 0, вроде бы строка написанна как и у Вас
+if c in list_operations.keys():
+    print(list_operations[c](a,b))
+else:
+    print("There is no such operation!")
